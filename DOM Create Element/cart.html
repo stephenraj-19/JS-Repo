@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>cart</title>
+
+  <style>
+    .row {
+      display: grid;
+      justify-content: center;
+      align-items: center;
+      margin: auto;
+    }
+
+    input {
+      width: 100px;
+    }
+
+    button {
+      margin-left: 10px;
+      background-color: rgb(0, 118, 249);
+      color: white;
+      border: white;
+      height: 22px;
+    }
+
+    li {
+      list-style: none;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="row">
+    <h1>Add to Cart</h1>
+    <div>
+      <input id="cartItemTextInput" />
+      <button id="addBtn">Add</button>
+    </div>
+    <div>
+      <h1>My Cart items</h1>
+      <ul id="cartItems"></ul>
+    </div>
+  </div>
+
+  <script>
+    const cartItemTextInput = document.getElementById("cartItemTextInput");
+    const addBtn = document.getElementById("addBtn");
+    const cartItems = document.getElementById("cartItems");
+
+    addBtn.addEventListener("click", () => {
+      const item = cartItemTextInput.value;
+      cartItems.innerHTML += `<li>${item}</li>`;
+      cartItemTextInput.value = "";
+    });
+  </script>
+</body>
+
+</html>
